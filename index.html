@@ -1,0 +1,1981 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Logo en la pestaña del navegador -->
+  <link rel="icon" href="assets/img/logo/logo.png" type="image/png" />
+  <title>Ross Delicias y Sabores</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --pink-light: #fce4ec;
+      --pink-mid: #f8bbd0;
+      --pink-rose: #e91e8c;
+      --pink-deep: #c2185b;
+      --gold: #c9a227;
+      --gold-light: #f0d080;
+      --gold-dark: #8b6914;
+      --cream: #fff8f0;
+      --brown: #4e342e;
+      --text-dark: #2d1b0e;
+      --text-mid: #5d3a2a;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Lato", sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      user-select: none;
+    }
+
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 248, 240, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--gold-light);
+      transition: box-shadow 0.3s;
+    }
+
+    nav.scrolled {
+      box-shadow: 0 4px 20px rgba(201, 162, 39, 0.25);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .nav-logo {
+      font-family: "Great Vibes", cursive;
+      font-size: 2rem;
+      background: linear-gradient(135deg,
+          var(--gold-dark),
+          var(--gold),
+          var(--gold-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 50px;
+      /* ajusta tamaño */
+      height: auto;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      color: var(--text-mid);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 3px;
+      transition: color 0.3s;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--pink-rose));
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-dark);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 2px;
+      background: var(--gold-dark);
+      transition: 0.3s;
+      border-radius: 2px;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(255, 248, 240, 0.98);
+      border-top: 1px solid var(--gold-light);
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      padding: 14px 24px;
+      font-family: "Playfair Display", serif;
+      color: var(--text-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--pink-light);
+      transition: background 0.2s;
+    }
+
+    .mobile-menu a:hover {
+      background: var(--pink-light);
+      color: var(--gold-dark);
+    }
+
+    /* ── HERO ── */
+    #inicio {
+      min-height: 100vh;
+      background: linear-gradient(160deg,
+          #fce4ec 0%,
+          #fff0f5 40%,
+          #fde8cc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 20px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #inicio::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 15% 20%,
+          rgba(201, 162, 39, 0.12) 0%,
+          transparent 50%),
+        radial-gradient(circle at 85% 80%,
+          rgba(233, 30, 140, 0.1) 0%,
+          transparent 50%);
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold-light);
+      opacity: 0.7;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: translateY(-20px) scale(1.3);
+        opacity: 1;
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero-content img {
+      width: 200px;
+      /* ajusta aquí el tamaño logo de inicio */
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: var(--brown);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 20px;
+      border-radius: 50px;
+      box-shadow: 0 2px 12px rgba(201, 162, 39, 0.4);
+    }
+
+    .hero-title {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 1;
+      background: linear-gradient(135deg,
+          var(--gold-dark) 0%,
+          var(--gold) 40%,
+          var(--gold-light) 70%,
+          var(--gold) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+      animation: fadeSlideUp 0.8s ease both;
+    }
+
+    .hero-sub {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(1.5rem, 4vw, 2.4rem);
+      color: var(--pink-deep);
+      margin-top: -8px;
+      margin-bottom: 20px;
+      animation: fadeSlideUp 0.8s 0.15s ease both;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto 32px;
+      animation: fadeSlideUp 0.8s 0.3s ease both;
+    }
+
+    .hero-desc strong {
+      color: var(--gold-dark);
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      animation: fadeSlideUp 0.8s 0.45s ease both;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #25d366, #108375);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    .btn-whatsapp svg {
+      width: 22px;
+      height: 22px;
+      fill: #fff;
+    }
+
+    .btn-catalogo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 14px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+    }
+
+    .btn-catalogo:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(201, 162, 39, 0.5);
+    }
+
+    .scroll-hint {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-mid);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      animation: fadeSlideUp 0.8s 0.6s ease both;
+    }
+
+    .scroll-hint .arrow {
+      width: 28px;
+      height: 28px;
+      border-right: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      transform: rotate(45deg);
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: rotate(45deg) translateY(0);
+      }
+
+      50% {
+        transform: rotate(45deg) translateY(6px);
+      }
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      background: linear-gradient(135deg,
+          var(--gold-dark),
+          var(--gold),
+          var(--gold-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-title p {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      color: var(--text-mid);
+      margin-top: 6px;
+      font-size: 1rem;
+    }
+
+    .divider {
+      width: 80px;
+      height: 3px;
+      margin: 12px auto 0;
+      background: linear-gradient(90deg,
+          transparent,
+          var(--gold),
+          transparent);
+      border-radius: 2px;
+    }
+
+    /* ── TORTAS (MEDIDAS) ── */
+    #catalogo {
+      padding: 80px 20px;
+      background: linear-gradient(180deg, var(--cream) 0%, #fff0f5 100%);
+    }
+
+    .catalogo-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .tab-btn {
+      padding: 10px 24px;
+      border: 2px solid var(--gold);
+      background: transparent;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+      color: var(--gold-dark);
+      transition: all 0.3s;
+    }
+
+    .tab-btn.active,
+    .tab-btn:hover {
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .tortas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .torta-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(201, 162, 39, 0.12);
+      border: 1px solid var(--gold-light);
+      transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+      text-align: center;
+      padding: 28px 18px;
+      position: relative;
+    }
+
+    .torta-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 36px rgba(201, 162, 39, 0.25);
+    }
+
+    .torta-card::before {
+      content: "";
+      display: block;
+      width: 50px;
+      /* ajusta tamaño */
+      height: 50px;
+
+      margin: 0 auto 10px auto;
+      /* centra y deja espacio abajo */
+
+      background-image: url("assets/icons/torta-casera.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .torta-card.fria::before {
+      content: "";
+      display: inline-block;
+      /* o block según necesites */
+      width: 50px;
+      /* tamaño del icono */
+      height: 50px;
+
+      background-image: url("assets/icons/torta-fria.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .torta-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+
+    .torta-card .porciones {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      background: var(--pink-light);
+      border-radius: 50px;
+      padding: 4px 12px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .torta-card .desc {
+      font-size: 0.82rem;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    .badge-size {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 50px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── GALERÍA ── */
+    #galeria {
+      padding: 80px 20px;
+      background:
+        linear-gradient(rgba(255, 240, 245, 0.85), rgba(255, 240, 245, 0.85)),
+        url("https://aliterdulcia.xchool.es/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBenUrQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--fe8132e0f41618a7d08b9b2e71481bcad382cc5d/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VWTI5dFltbHVaVjl2Y0hScGIyNXpld2s2RUdGMWRHOWZiM0pwWlc1MFZEb01aM0poZG1sMGVVa2lDMk5sYm5SbGNnWTZCa1ZVT2d0eVpYTnBlbVZKSWc0eE9USXdlRGN3TUY0R093aFVPZ2xqY205d1NTSVJNVGt5TUhnM01EQXJNQ3N3QmpzSVZBPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--c96513cd59e7026e373b0cb6cb4b03706707bcd5/portada_xchool.jpg") center/cover fixed;
+    }
+
+    .galeria-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      position: relative;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+          rgba(78, 52, 46, 0.8) 0%,
+          transparent 60%);
+      opacity: 0;
+      transition: opacity 0.35s;
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay span {
+      color: #fff;
+      font-family: "Playfair Display", serif;
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    /* placeholder gallery cards */
+    .gallery-placeholder {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 1/1;
+      background: linear-gradient(135deg, var(--pink-light), var(--pink-mid));
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      border: 2px dashed var(--gold-light);
+      transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+      position: relative;
+    }
+
+    .gallery-placeholder:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 28px rgba(201, 162, 39, 0.25);
+    }
+
+    .gallery-placeholder .ph-icon {
+      font-size: 3rem;
+    }
+
+    .gallery-placeholder .ph-label {
+      font-family: "Playfair Display", serif;
+      color: var(--gold-dark);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    .gallery-note {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      font-style: italic;
+    }
+
+    /* ── PRODUCTOS ── */
+    #productos {
+      padding: 80px 20px;
+      background: linear-gradient(180deg, var(--cream) 0%, #fef5e7 100%);
+    }
+
+    .productos-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .productos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .prod-card {
+      background: #fff;
+      border-radius: 22px;
+      padding: 30px 22px;
+      border: 1px solid var(--gold-light);
+      box-shadow: 0 4px 18px rgba(201, 162, 39, 0.1);
+      transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .prod-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(201, 162, 39, 0.22);
+    }
+
+    .prod-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .prod-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 1.15rem;
+      color: var(--gold-dark);
+      margin-bottom: 8px;
+    }
+
+    .prod-card p {
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      line-height: 1.65;
+    }
+
+    /* bebidas especiales */
+    .bebidas-section {
+      margin-top: 60px;
+    }
+
+    .bebidas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .bebida-card {
+      background: linear-gradient(135deg, #3e1f12, #5d3a2a);
+      border-radius: 22px;
+      padding: 32px 26px;
+      color: #fff;
+      text-align: center;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bebida-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+          rgba(201, 162, 39, 0.15),
+          transparent);
+    }
+
+    .bebida-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .bebida-icon {
+      font-size: 3rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .bebida-card h3 {
+      font-family: "Great Vibes", cursive;
+      font-size: 2rem;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+
+    .bebida-card p {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+    }
+
+    .alcohol-warning {
+      margin-top: 28px;
+      padding: 16px 22px;
+      background: rgba(201, 162, 39, 0.12);
+      border: 1px solid var(--gold-light);
+      border-radius: 14px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    .alcohol-warning strong {
+      color: var(--gold-dark);
+    }
+
+    /* ── DISEÑO PERSONALIZADO ── */
+    #personalizado {
+      padding: 80px 20px;
+      background:
+        linear-gradient(rgba(44, 20, 10, 0.88), rgba(44, 20, 10, 0.88)),
+        url("https://i.pinimg.com/1200x/89/7f/f0/897ff0ef441e38e9192d4d0e93f1cebc.jpg") center/cover fixed;
+      color: #fff;
+    }
+
+    .personalizado-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #personalizado .section-title h2 {
+      color: var(--gold-light);
+    }
+
+    #personalizado .section-title p {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    #personalizado .divider {
+      background: linear-gradient(90deg,
+          transparent,
+          var(--gold-light),
+          transparent);
+    }
+
+    .design-form {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(201, 162, 39, 0.3);
+      border-radius: 24px;
+      padding: 40px 36px;
+      margin-top: 36px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-align: left;
+    }
+
+    .form-group label {
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: var(--gold-light);
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(201, 162, 39, 0.4);
+      border-radius: 10px;
+      color: #fff;
+      font-family: "Lato", sans-serif;
+      font-size: 0.9rem;
+      padding: 12px 16px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select option {
+      background: #2d1b0e;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .btn-send {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      padding: 15px 36px;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(201, 162, 39, 0.4);
+      margin-top: 10px;
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+    }
+
+    .btn-send:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(201, 162, 39, 0.55);
+    }
+
+    /* ── NOSOTROS ── */
+    #nosotros {
+      padding: 80px 20px;
+      background: linear-gradient(135deg,
+          var(--pink-light) 0%,
+          var(--cream) 100%);
+    }
+
+    .nosotros-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .nosotros-text h2 {
+      font-family: "Great Vibes", cursive;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 20px;
+    }
+
+    .nosotros-text p {
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-bottom: 16px;
+      font-size: 0.97rem;
+    }
+
+    .values-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .values-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: "Playfair Display", serif;
+      color: var(--text-mid);
+      font-size: 0.95rem;
+    }
+
+    .values-list li::before {
+      content: "✦";
+      color: var(--gold);
+      font-size: 1rem;
+    }
+
+    .nosotros-visual {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .nos-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 24px 18px;
+      text-align: center;
+      box-shadow: 0 4px 18px rgba(201, 162, 39, 0.12);
+      border: 1px solid var(--gold-light);
+      transition: transform 0.3s;
+    }
+
+    .nos-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .nos-card .num {
+      font-family: "Great Vibes", cursive;
+      font-size: 3.5rem;
+      color: var(--gold-dark);
+      line-height: 1;
+    }
+
+    .nos-card .lbl {
+      font-size: 0.8rem;
+      color: var(--text-mid);
+      margin-top: 4px;
+    }
+
+    /* ── CONTACTO ── */
+    #contacto {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #2d1b0e 0%, #4e342e 100%);
+      color: #fff;
+    }
+
+    .contacto-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    #contacto .section-title h2 {
+      color: var(--gold-light);
+    }
+
+    #contacto .section-title p {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    #contacto .divider {
+      background: linear-gradient(90deg,
+          transparent,
+          var(--gold-light),
+          transparent);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(201, 162, 39, 0.25);
+      border-radius: 20px;
+      padding: 28px 20px;
+      text-align: center;
+      transition:
+        transform 0.3s,
+        background 0.3s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.11);
+    }
+
+    .contact-card .c-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-card h4 {
+      font-family: "Playfair Display", serif;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .contact-card p,
+    .contact-card a {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      line-height: 1.7;
+    }
+
+    .contact-card a:hover {
+      color: var(--gold-light);
+    }
+
+    .wa-big {
+      display: block;
+      margin: 36px auto 0;
+      width: fit-content;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+      width: fit-content;
+    }
+
+    .wa-big:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    .wa-big svg {
+      width: 26px;
+      height: 26px;
+      fill: #fff;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #ffdded;
+      border-top: 2px solid rgba(212, 172, 37, 0.3);
+      padding: 40px 20px 24px;
+      color: rgba(0, 0, 0, 0.55);
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-family: "Great Vibes", cursive;
+      font-size: 2.5rem;
+      background: linear-gradient(135deg,
+          var(--gold-dark),
+          var(--gold),
+          var(--gold-light));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .footer-tagline {
+      font-style: italic;
+      font-size: 0.88rem;
+      margin-bottom: 22px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .footer-links a {
+      color: rgba(0, 0, 0, 0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-sep {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin: 16px 0;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+    }
+
+    .footer-copy span {
+      color: var(--gold);
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nosotros-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .nosotros-visual {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .design-form {
+        padding: 28px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .tortas-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body oncontextmenu="return false">
+
+  <!-- ── NAVBAR ── -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#inicio" class="nav-logo">
+        <img src="assets/img/logo/logo.png" alt="Ross logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#productos">Productos</a></li>
+        <li><a href="#personalizado">Diseño</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#inicio" onclick="closeMobile()">Inicio</a>
+      <a href="#catalogo" onclick="closeMobile()">Catálogo</a>
+      <a href="#galeria" onclick="closeMobile()">Galería</a>
+      <a href="#productos" onclick="closeMobile()">Productos</a>
+      <a href="#personalizado" onclick="closeMobile()">Diseño</a>
+      <a href="#nosotros" onclick="closeMobile()">Nosotros</a>
+      <a href="#contacto" onclick="closeMobile()">Contacto</a>
+    </div>
+  </nav>
+
+
+  <!-- ── HERO ── -->
+  <section id="inicio">
+    <!-- sparkles -->
+    <div class="sparkle" style="top: 15%; left: 10%; animation-delay: 0s"></div>
+    <div class="sparkle" style="
+          top: 25%;
+          left: 80%;
+          animation-delay: 0.7s;
+          width: 4px;
+          height: 4px;
+        "></div>
+    <div class="sparkle" style="
+          top: 70%;
+          left: 5%;
+          animation-delay: 1.4s;
+          width: 8px;
+          height: 8px;
+          background: var(--pink-rose);
+        "></div>
+    <div class="sparkle" style="top: 60%; left: 90%; animation-delay: 0.3s"></div>
+    <div class="sparkle" style="
+          top: 85%;
+          left: 50%;
+          animation-delay: 1s;
+          width: 5px;
+          height: 5px;
+        "></div>
+    <div class="sparkle" style="
+          top: 40%;
+          left: 3%;
+          animation-delay: 1.8s;
+          width: 7px;
+          height: 7px;
+          background: var(--pink-rose);
+        "></div>
+
+    <div class="hero-content">
+      <span class="hero-badge">✦ Vereda San Francisco – Inzá ✦</span>
+      <img class="" src="assets/img/logo/logo.png" alt="logo" />
+      <p class="hero-desc">
+        Endulzamos cada momento especial con
+        <strong>tortas artesanales</strong>, postres únicos y creaciones
+        personalizadas hechas con amor, ingredientes frescos y la mejor sazón.
+      </p>
+      <div class="hero-btns">
+        <a href="https://wa.me/573225195068?text=Hola%20Ross%20Delicias%20y%20Sabores%2C%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20%F0%9F%8E%82"
+          target="_blank" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg>
+          Escríbenos por WhatsApp
+        </a>
+        <a href="#catalogo" class="btn-catalogo">🎂 Ver Catálogo</a>
+      </div>
+      <div class="scroll-hint">
+        <span>Descubre más</span>
+        <div class="arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CATÁLOGO MEDIDAS ── -->
+  <section id="catalogo">
+    <div class="catalogo-inner">
+      <div class="section-title reveal">
+        <h2>Nuestras Tortas</h2>
+        <p>Desde la más pequeña hasta la más grande — ¡todas deliciosas!</p>
+        <div class="divider"></div>
+      </div>
+      <div class="tabs reveal">
+        <button class="tab-btn active" onclick="switchTab('caseras')">
+          🎂 Tortas Caseras
+        </button>
+        <button class="tab-btn" onclick="switchTab('frias')">
+          🍰 Tortas Frías
+        </button>
+      </div>
+
+      <!-- Caseras -->
+      <div class="tab-content active" id="tab-caseras">
+        <div class="tortas-grid">
+          <div class="torta-card reveal">
+            <span class="badge-size">1/2 Libra</span>
+            <h3>Torta de 1/2 Libra</h3>
+            <span class="porciones">4 – 5 porciones</span>
+            <p class="desc">
+              Perfecta para celebraciones íntimas. Base esponjosa, relleno al
+              gusto.
+            </p>
+          </div>
+          <div class="torta-card reveal">
+            <span class="badge-size">1/4 Libra</span>
+            <h3>Torta de 1/4 Libra</h3>
+            <span class="porciones">2 – 4 porciones</span>
+            <p class="desc">
+              Ideal para reuniones familiares. Varios sabores disponibles.
+            </p>
+          </div>
+          <div class="torta-card reveal">
+            <span class="badge-size">1/8 Libras</span>
+            <h3>Torta de 1/8 Libras</h3>
+            <span class="porciones">1 – 2 porciones</span>
+            <p class="desc">Excelente para cumpleaños y fiestas medianas.</p>
+          </div>
+          <div class="torta-card reveal">
+            <span class="badge-size">1 Libras</span>
+            <h3>Torta de 1 Libra</h3>
+            <span class="porciones">8 – 10 porciones/edit</span>
+            <p class="desc">
+              Perfecta para eventos grandes. Decoración personalizada
+              disponible.
+            </p>
+          </div>
+          <div class="torta-card reveal">
+            <span class="badge-size">2 Libras</span>
+            <h3>Torta de 2 Libras</h3>
+            <span class="porciones">16 – 20 porciones</span>
+            <p class="desc">
+              Para grandes celebraciones. Base doble con rellenos variados.
+            </p>
+          </div>
+          <div class="torta-card reveal">
+            <span class="badge-size">3+ Libras</span>
+            <h3>Tortas Especiales</h3>
+            <span class="porciones">50+ porciones</span>
+            <p class="desc">
+              Tortas de múltiples pisos, temáticas y completamente
+              personalizadas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Frías -->
+      <div class="tab-content" id="tab-frias">
+        <div class="tortas-grid">
+          <div class="torta-card fria reveal">
+            <span class="badge-size">Pequeña</span>
+            <h3>Torta Fría Pequeña</h3>
+            <span class="porciones">6 – 8 porciones</span>
+            <p class="desc">
+              Base de frutas frescas, crema suave.
+            </p>
+          </div>
+          <div class="torta-card fria reveal">
+            <span class="badge-size">Mediana</span>
+            <h3>Torta Fría Mediana</h3>
+            <span class="porciones">12 – 16 porciones</span>
+            <p class="desc">
+              Cremosa y refrescante. Disponible en sabores de frutas y
+              chocolate.
+            </p>
+          </div>
+          <div class="torta-card fria reveal">
+            <span class="badge-size">Grande</span>
+            <h3>Torta Fría Grande</h3>
+            <span class="porciones">20 – 28 porciones</span>
+            <p class="desc">
+              Perfecta para eventos. Decoración elegante con frutas y crema.
+            </p>
+          </div>
+          <div class="torta-card fria reveal">
+            <span class="badge-size">Especial</span>
+            <h3>Torta Fría Especial</h3>
+            <span class="porciones">30+ porciones</span>
+            <p class="desc">
+              Diseño exclusivo, varios pisos, sabores combinados a tu gusto.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 36px" class="reveal">
+        <a href="https://wa.me/573225195068?text=Hola%2C%20me%20interesa%20pedir%20una%20torta.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
+          target="_blank" class="btn-whatsapp" style="display: inline-flex">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg>
+          Consultar precio de mi torta
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALERÍA ── -->
+  <section id="galeria">
+    <div class="galeria-inner">
+      <div class="section-title reveal">
+        <h2>Galería</h2>
+        <p>Cada torta cuenta una historia única — aquí las nuestras</p>
+        <div class="divider"></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/casera1.png" alt="Torta personalizada" />
+          <div class="gallery-overlay">
+            <span>Torta personalizada</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/fria1.png" alt="Torta fría de fresa" />
+          <div class="gallery-overlay">
+            <span>Torta fría de fresa</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/amor1.png" alt="Torta de cumpleaños" />
+          <div class="gallery-overlay">
+            <span>Torta de cumpleaños</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/persoms6.jpg" alt="Torta de chocolate" />
+          <div class="gallery-overlay">
+            <span>Torta de chocolate</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/perso5.jpeg" alt="Torta de frutos rojos" />
+          <div class="gallery-overlay">
+            <span>Torta de frutos rojos</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/perso3.jpeg" alt="Torta de matrimonio" />
+          <div class="gallery-overlay">
+            <span>Torta de matrimonio</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/sencillaes4.jpg" alt="Cupcakes decorados" />
+          <div class="gallery-overlay">
+            <span>Cupcakes decorados</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/sencillaes1.png" alt="Creación especial" />
+          <div class="gallery-overlay">
+            <span>Creación especial</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/sencillaes1.png" alt="Creación especial" />
+          <div class="gallery-overlay">
+            <span>Creación especial</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/sencillaes1.png" alt="Creación especial" />
+          <div class="gallery-overlay">
+            <span>Creación especial</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/sencillaes1.png" alt="Creación especial" />
+          <div class="gallery-overlay">
+            <span>Creación especial</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/sencillaes1.png" alt="Creación especial" />
+          <div class="gallery-overlay">
+            <span>Creación especial</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/sencillaes1.png" alt="Creación especial" />
+          <div class="gallery-overlay">
+            <span>Creación especial</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/sencillaes1.png" alt="Creación especial" />
+          <div class="gallery-overlay">
+            <span>Creación especial</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/sencillaes1.png" alt="Creación especial" />
+          <div class="gallery-overlay">
+            <span>Creación especial</span>
+          </div>
+        </div>
+
+        <div class="gallery-item reveal">
+          <img src="assets/img/galeria/sencillaes1.png" alt="Creación especial" />
+          <div class="gallery-overlay">
+            <span>Creación especial</span>
+          </div>
+        </div>
+      </div>
+      <p class="gallery-note reveal">
+        📸 Pronto más fotos de nuestras creaciones. ¡Cada torta es una obra de
+        arte!
+      </p>
+    </div>
+  </section>
+
+  <!-- ── PRODUCTOS ── -->
+  <section id="productos">
+    <div class="productos-inner">
+      <div class="section-title reveal">
+        <h2>Nuestros Productos</h2>
+        <p>Mucho más que tortas — todo hecho con amor artesanal</p>
+        <div class="divider"></div>
+      </div>
+      <div class="productos-grid">
+        <div class="prod-card reveal">
+          <img src="assets/icons/torta-casera.png" alt="" width="65px" />
+          <h3>Tortas Caseras</h3>
+          <p>
+            Elaboradas con recetas tradicionales, ingredientes frescos y todo
+            el amor de siempre. Disponibles en múltiples sabores y tamaños.
+          </p>
+        </div>
+        <div class="prod-card reveal">
+          <img src="assets/icons/torta-fria.png" alt="" width="65px" />
+          <h3>Tortas Frías</h3>
+          <p>
+            Cremosas y refrescantes. Ideales para climas cálidos y
+            celebraciones especiales con rellenos irresistibles.
+          </p>
+        </div>
+        <div class="prod-card reveal">
+          <img src="assets/icons/personalizadas.png" alt="" width="60px" />
+          <h3>Tortas Personalizadas</h3>
+          <p>
+            Diseñamos tu torta soñada. Temas, personajes, colores, todo a tu
+            gusto para hacer tu evento único.
+          </p>
+        </div>
+        <div class="prod-card reveal">
+          <img src="assets/icons/pan-de-molde.png" alt="" width="65px" />
+          <h3>Panderos</h3>
+          <p>
+            Crujientes por fuera, suaves por dentro. Receta artesanal con
+            queso y panela, perfectos para compartir en familia.
+          </p>
+        </div>
+        <div class="prod-card reveal">
+          <img src="assets/icons/alfajores.png" alt="" width="65px" />
+          <h3>Alfajores</h3>
+          <p>
+            Clásicos de la repostería, rellenos de arequipe y cubiertos con
+            coco rallado. Hechos con mucho cariño y paciencia.
+          </p>
+        </div>
+        <div class="prod-card reveal">
+          <img src="assets/icons/sabroso-delicioso.png" alt="" width="65px" />
+          <h3>Más Delicias</h3>
+          <p>
+            Brownies, galletas decoradas, postres en vaso, conservas y muchas
+            sorpresas más. ¡Pregúntanos qué hay disponible!
+          </p>
+        </div>
+      </div>
+
+      <!-- Bebidas Especiales -->
+      <div class="bebidas-section">
+        <div class="section-title reveal" style="margin-bottom: 30px">
+          <h2>Bebidas Especiales</h2>
+          <p>Licores artesanales elaborados con dedicación</p>
+          <div class="divider"></div>
+        </div>
+        <div class="bebidas-grid">
+          <div class="bebida-card reveal">
+            <img src="assets/icons/sabajon.png" alt="" width="60px" />
+            <h3>Sabajón</h3>
+            <p>
+              Cremoso, suave y con el sabor único de nuestra receta familiar.
+              Un sabajón artesanal que enamora desde el primer sorbo.
+            </p>
+          </div>
+          <div class="bebida-card reveal">
+            <img src="assets/icons/crema-cafe.png" alt="" width="60px" />
+            <h3>Crema de Café</h3>
+            <p>
+              La intensidad del café colombiano combinada con la suavidad de
+              una crema artesanal. Una experiencia para los amantes del café.
+            </p>
+          </div>
+          <div class="bebida-card reveal">
+            <img src="assets/icons/sabroso-delicioso.png" alt="" width="60px" />
+            <h3>Otras Delicias</h3>
+            <p>
+              Muy pronto estaremos lanzando nuevas bebidas artesanales.
+              ¡Mantente!
+            </p>
+          </div>
+        </div>
+
+        <div class="alcohol-warning reveal">
+          <img src="assets/icons/advertencia.png" alt="Advertencia"> <strong>Advertencia:</strong> El sabajón y la crema
+          de café son
+          bebidas <strong>a base de alcohol</strong>. El
+          <strong>exceso de alcohol es perjudicial para la salud</strong>.
+          <strong>Prohibido el consumo para menores de edad.</strong>
+          Si está en estado de embarazo o lactancia, absténgase de consumir.
+        </div>
+
+        <div style="text-align: center; margin-top: 30px" class="reveal">
+          <a href="https://wa.me/573225195068?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20bebidas%20artesanales%20🍹"
+            target="_blank" class="btn-whatsapp" style="display: inline-flex">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+            Escríbenos por WhatsApp para más información.
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DISEÑO PERSONALIZADO ── -->
+  <section id="personalizado">
+    <div class="personalizado-inner">
+      <div class="section-title reveal">
+        <h2>Diseña tu Torta</h2>
+        <p>Cuéntanos tu idea y la hacemos realidad</p>
+        <div class="divider"></div>
+      </div>
+      <div class="design-form reveal">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tu nombre</label>
+            <input type="text" placeholder="Ej: María González" id="nombre" />
+          </div>
+          <div class="form-group">
+            <label>Ocasión</label>
+            <select id="ocasion">
+              <option value="">Selecciona...</option>
+              <option>Cumpleaños</option>
+              <option>Matrimonio</option>
+              <option>Grados</option>
+              <option>Baby Shower</option>
+              <option>Bautizo</option>
+              <option>Aniversario</option>
+              <option>Otra ocasión</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tipo de torta</label>
+            <select id="tipo">
+              <option value="">Selecciona...</option>
+              <option>Torta Casera</option>
+              <option>Torta Fría</option>
+              <option>Torta Personalizada</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tamaño / Libras</label>
+            <select id="tamano">
+              <option value="">Selecciona...</option>
+              <option>1/2 Libra</option>
+              <option>1/4 Libras</option>
+              <option>1/8 Libras</option>
+              <option>1 Libras</option>
+              <option>2 Libras</option>
+              <option>3+ Libras (Especial)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom: 18px">
+          <label>Describe tu diseño o tema</label>
+          <textarea id="descripcion"
+            placeholder="Ej: Quiero una torta de 3 pisos con tema floral en tonos rosas y dorados, con el nombre 'Valentina' en letras doradas y flores de azúcar..."></textarea>
+        </div>
+        <div style="text-align: center">
+          <button class="btn-send" onclick="enviarDiseño()">
+            📲 Enviar diseño por WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NOSOTROS ── -->
+  <section id="nosotros">
+    <div class="nosotros-inner">
+      <div class="nosotros-text reveal">
+        <h2>Sobre Nosotros</h2>
+        <p>
+          Somos <strong>Ross Delicias y Sabores</strong>, una repostería
+          artesanal ubicada en la Vereda San Francisco, Inzá. Nacimos de la
+          pasión por endulzar momentos especiales con creaciones hechas desde
+          el corazón.
+        </p>
+        <p>
+          Cada torta, cada postre, cada detalle es elaborado con ingredientes
+          frescos y la dedicación de quien ama verdaderamente su oficio.
+          Creemos que los mejores momentos de la vida merecen los mejores
+          sabores.
+        </p>
+        <ul class="values-list">
+          <li>Ingredientes frescos y de calidad</li>
+          <li>Recetas artesanales con sazón propia</li>
+          <li>Personalización sin límites</li>
+          <li>Entregas puntuales y con amor</li>
+          <li>Atención cálida y cercana</li>
+        </ul>
+      </div>
+      <div class="nosotros-visual reveal">
+        <div class="nos-card">
+          <span class="num">100%</span>
+          <p class="lbl">Artesanal</p>
+        </div>
+        <div class="nos-card">
+          <span class="num"><img src="assets/icons/sabroso-delicioso.png" alt=""></span>
+          <p class="lbl">Con amor</p>
+        </div>
+        <div class="nos-card">
+          <span class="num"><img src="assets/icons/personalizadas.png" alt=""></span>
+          <p class="lbl">Tortas únicas</p>
+        </div>
+        <div class="nos-card">
+          <span class="num"><img src="assets/icons/cinco-estrellas.png" alt=""></span>
+          <p class="lbl">Calidad premium</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACTO ── -->
+  <section id="contacto">
+    <div class="contacto-inner">
+      <div class="section-title reveal">
+        <h2>Contáctanos</h2>
+        <p>Estamos listos para endulzar tu próximo evento</p>
+        <div class="divider"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <div class="c-icon"><img src="assets/icons/whatsapp.png" alt="WhatsApp"></div>
+          <h4>WhatsApp / Llamada</h4>
+          <p><a href="tel:+573225195068">322 519 5068</a></p>
+          <p><a href="tel:+573223362762">322 336 2762</a></p>
+        </div>
+        <div class="contact-card reveal">
+          <div class="c-icon"><img src="assets/icons/mapa.png" alt="Ubicación"></div>
+          <h4>Ubicación</h4>
+          <p>Vereda San Francisco<br />Inzá, Cauca<br />Colombia</p>
+        </div>
+        <div class="contact-card reveal">
+          <div class="c-icon"><img src="assets/icons/alarma-3d.png" alt=""></div>
+          <h4>Horario</h4>
+          <p>
+            Lunes a Sábado<br />8:00 am – 6:00 pm<br />Domingos con pedido
+            previo
+          </p>
+        </div>
+        <div class="contact-card reveal">
+          <div class="c-icon"><img src="assets/icons/pedidos.png" alt=""></div>
+          <h4>Pedidos</h4>
+          <p>
+            Pedidos con mínimo<br />48 horas de anticipación<br />para tortas
+            personalizadas
+          </p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 10px">
+        <a href="https://wa.me/573225195068?text=Hola%20Ross%20Delicias%20y%20Sabores%2C%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20%F0%9F%8E%82"
+          target="_blank" class="wa-big">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg>
+          Escríbenos ahora ¡y recibe atención personalizada!
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">Ross Delicias y Sabores</span>
+      <p class="footer-tagline">
+        Endulzando momentos especiales desde Inzá, Cauca 🎂
+      </p>
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#galeria">Galería</a>
+        <a href="#productos">Productos</a>
+        <a href="#personalizado">Diseño</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <hr class="footer-sep" />
+      <p class="footer-copy">
+        © 2026 <span>Ross Delicias y Sabores</span> · Vereda San Francisco,
+        Inzá, Cauca ·
+        <a href="tel:+573225195068" style="color: var(--gold); text-decoration: none">322 519 5068</a>
+      </p>
+      <p style="font-size:10px; opacity:0.6; text-align:center;">
+        © dev:Santix | Web ∴ protected
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll shadow
+    window.addEventListener("scroll", () => {
+      document
+        .getElementById("navbar")
+        .classList.toggle("scrolled", window.scrollY > 40);
+    });
+
+    // Mobile menu
+    function toggleMenu() {
+      document.getElementById("hamburger").classList.toggle("open");
+      document.getElementById("mobileMenu").classList.toggle("open");
+    }
+    function closeMobile() {
+      document.getElementById("hamburger").classList.remove("open");
+      document.getElementById("mobileMenu").classList.remove("open");
+    }
+
+    // Tabs
+    function switchTab(t) {
+      document
+        .querySelectorAll(".tab-content")
+        .forEach((el) => el.classList.remove("active"));
+      document
+        .querySelectorAll(".tab-btn")
+        .forEach((el) => el.classList.remove("active"));
+      document.getElementById("tab-" + t).classList.add("active");
+      event.target.classList.add("active");
+    }
+
+    // Scroll reveal
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.12 },
+    );
+    document
+      .querySelectorAll(".reveal")
+      .forEach((el) => observer.observe(el));
+
+    // Enviar diseño por WA
+    function enviarDiseño() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const ocasion = document.getElementById("ocasion").value;
+      const tipo = document.getElementById("tipo").value;
+      const tamano = document.getElementById("tamano").value;
+      const desc = document.getElementById("descripcion").value.trim();
+      if (!nombre) {
+        alert("Por favor escribe tu nombre.");
+        return;
+      }
+      if (!ocasion) {
+        alert("Por favor selecciona la ocasión.");
+        return;
+      }
+      const msg = `Hola Ross Delicias y Sabores \n\nMe gustaría encargar una torta:\n\n Nombre: ${nombre}\n Ocasión: ${ocasion}\n Tipo: ${tipo || "Por definir"}\n Tamaño: ${tamano || "Por definir"}\n\n Descripción del diseño:\n${desc || "Sin descripción adicional"}\n\n¡Gracias!`;
+      window.open(
+        "https://wa.me/573225195068?text=" + encodeURIComponent(msg),
+        "_blank",
+      );
+    }
+  </script>
+</body>
+
+</html>
