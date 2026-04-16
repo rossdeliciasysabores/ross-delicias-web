@@ -1254,6 +1254,25 @@
         grid-template-columns: 1fr 1fr;
       }
     }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      /* espacio bonito entre logo y texto */
+    }
+
+    .text-logo {
+      margin: 0;
+      /* ELIMINA el espacio feo */
+      font-family: "Great Vibes", cursive;
+      font-size: 2.2rem;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-top: 8px;
+    }
   </style>
 </head>
 
@@ -1262,9 +1281,13 @@
   <!-- ── NAVBAR ── -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#inicio" class="nav-logo">
-        <img src="assets/img/logo/logo.png" alt="Ross logo">
-      </a>
+      <div class="brand">
+        <a href="#inicio" class="nav-logo">
+          <img src="assets/img/logo/logo.png" alt="Ross logo">
+        </a>
+        <p class="text-logo">Ross Delicias & Sabores</p>
+      </div>
+
       <ul class="nav-links">
         <li><a href="#inicio">Inicio</a></li>
         <li><a href="#catalogo">Catálogo</a></li>
