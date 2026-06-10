@@ -4,7 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Logo en la pestaña del navegador -->
   <link rel="icon" href="assets/img/logo/logo.png" type="image/png" />
   <title>Ross Delicias y Sabores</title>
   <link
@@ -24,6 +23,14 @@
       --text-dark: #2d1b0e;
       --text-mid: #5d3a2a;
       --white: #ffffff;
+
+      /* Paleta Día del Padre */
+      --dad-blue: #1a3a5c;
+      --dad-blue-mid: #2a5298;
+      --dad-blue-light: #4a90d9;
+      --dad-blue-pale: #e8f0fb;
+      --dad-navy: #0d2137;
+      --dad-accent: #c9a227;
     }
 
     * {
@@ -45,47 +52,45 @@
     }
 
     /* ══════════════════════════════════════
-      TEMÁTICA DÍA DE LA MADRE
+      TEMÁTICA DÍA DEL PADRE
     ══════════════════════════════════════ */
 
-    /* Pétalos flotantes de fondo */
-    .petal {
+    /* Estrellas / confeti flotante */
+    .star-particle {
       position: fixed;
       top: -60px;
-      font-size: 1.4rem;
-      animation: petalFall linear infinite;
+      font-size: 1.3rem;
+      animation: starFall linear infinite;
       pointer-events: none;
       z-index: 9999;
-      opacity: 0.75;
+      opacity: 0.7;
     }
 
-    @keyframes petalFall {
+    @keyframes starFall {
       0% {
         transform: translateY(0) rotate(0deg) translateX(0);
         opacity: 0.8;
       }
-
       50% {
-        transform: translateY(50vh) rotate(180deg) translateX(30px);
-        opacity: 0.6;
+        transform: translateY(50vh) rotate(180deg) translateX(25px);
+        opacity: 0.55;
       }
-
       100% {
-        transform: translateY(110vh) rotate(360deg) translateX(-20px);
+        transform: translateY(110vh) rotate(360deg) translateX(-15px);
         opacity: 0;
       }
     }
 
-    /* Banner madre sticky debajo del navbar */
-    #mothers-main-banner {
-      background: linear-gradient(135deg, #ffe0f0 0%, #fff0f7 40%, #fde8f8 100%);
-      border-bottom: 2px solid #f9b8d4;
+    /* Banner Día del Padre */
+    #fathers-main-banner {
+      background: linear-gradient(135deg, #e8f0fb 0%, #f0f5ff 40%, #e8edf8 100%);
+      border-bottom: 2px solid #b0c8e8;
       padding: 0;
       overflow: hidden;
       position: relative;
     }
 
-    #mothers-main-banner .banner-inner {
+    #fathers-main-banner .banner-inner {
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
@@ -96,30 +101,30 @@
       flex-wrap: wrap;
     }
 
-    #mothers-main-banner .banner-left {
+    #fathers-main-banner .banner-left {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    #mothers-main-banner .banner-emoji {
+    #fathers-main-banner .banner-emoji {
       font-size: 2rem;
-      animation: mdSway 2.5s ease-in-out infinite;
+      animation: dadSway 2.5s ease-in-out infinite;
     }
 
-    #mothers-main-banner .banner-text {
+    #fathers-main-banner .banner-text {
       font-size: 0.92rem;
-      color: #9b2460;
+      color: #1a3a5c;
       line-height: 1.5;
     }
 
-    #mothers-main-banner .banner-text strong {
+    #fathers-main-banner .banner-text strong {
       font-size: 1.05rem;
-      color: #7a1a4e;
+      color: #0d2137;
       display: block;
     }
 
-    /* Contador regresivo */
+    /* Contador regresivo Día del Padre */
     .countdown-wrap {
       display: flex;
       align-items: center;
@@ -129,7 +134,7 @@
 
     .countdown-label {
       font-size: 0.75rem;
-      color: #9b2460;
+      color: #1a3a5c;
       font-style: italic;
       white-space: nowrap;
     }
@@ -140,13 +145,13 @@
     }
 
     .cbox {
-      background: linear-gradient(135deg, #e8457a, #c43168);
+      background: linear-gradient(135deg, #2a5298, #1a3a5c);
       color: #fff;
       border-radius: 8px;
       padding: 4px 8px;
       text-align: center;
       min-width: 46px;
-      box-shadow: 0 2px 8px rgba(196, 49, 104, 0.35);
+      box-shadow: 0 2px 8px rgba(26, 58, 92, 0.35);
     }
 
     .cbox .cnum {
@@ -165,14 +170,14 @@
     }
 
     .countdown-sep {
-      color: #e8457a;
+      color: #2a5298;
       font-size: 1.3rem;
       font-weight: 700;
       margin-top: -4px;
     }
 
     .banner-cta {
-      background: linear-gradient(135deg, #e8457a, #c43168);
+      background: linear-gradient(135deg, #2a5298, #1a3a5c);
       color: #fff !important;
       font-size: 0.85rem;
       font-weight: 700;
@@ -180,7 +185,7 @@
       padding: 8px 20px;
       text-decoration: none;
       white-space: nowrap;
-      box-shadow: 0 3px 14px rgba(196, 49, 104, 0.4);
+      box-shadow: 0 3px 14px rgba(26, 58, 92, 0.4);
       transition: transform 0.2s, box-shadow 0.2s;
       display: inline-flex;
       align-items: center;
@@ -189,73 +194,73 @@
 
     .banner-cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 22px rgba(196, 49, 104, 0.5);
+      box-shadow: 0 6px 22px rgba(26, 58, 92, 0.5);
     }
 
-    /* Mensaje cuando ya pasó el 10 de mayo */
-    #after-mothers-day-msg {
+    /* Mensaje cuando ya pasó el día */
+    #after-fathers-day-msg {
       display: none;
       text-align: center;
       padding: 10px 20px;
       font-size: 0.9rem;
-      color: #9b2460;
+      color: #1a3a5c;
       font-style: italic;
     }
 
-    /* Sección especial Día de la Madre HERO */
-    #mothers-hero-section {
-      background: linear-gradient(160deg, #ffe0f0 0%, #fff5fc 50%, #fde8cc 100%);
+    /* Sección hero Día del Padre */
+    #fathers-hero-section {
+      background: linear-gradient(160deg, #ddeaff 0%, #f0f5ff 50%, #fde8cc 100%);
       padding: 70px 20px 50px;
       text-align: center;
       position: relative;
       overflow: hidden;
     }
 
-    #mothers-hero-section::before {
+    #fathers-hero-section::before {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 10% 20%, rgba(233, 30, 140, 0.08) 0%, transparent 55%),
+        radial-gradient(circle at 10% 20%, rgba(42, 82, 152, 0.08) 0%, transparent 55%),
         radial-gradient(circle at 90% 80%, rgba(201, 162, 39, 0.1) 0%, transparent 55%);
     }
 
-    .mothers-inner {
+    .fathers-inner {
       position: relative;
       z-index: 1;
       max-width: 860px;
       margin: 0 auto;
     }
 
-    /* Imagen / badge floral grande */
-    .mothers-badge-img {
+    /* Badge / anillo decorativo */
+    .fathers-badge-img {
       display: inline-block;
       margin-bottom: 24px;
       position: relative;
     }
 
-    .mothers-badge-img .flower-ring {
+    .fathers-badge-img .dad-ring {
       width: 200px;
       height: 200px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #ffe0f0, #ffc1dd, #ffaad4);
-      border: 5px solid #f9b8d4;
+      background: linear-gradient(135deg, #ddeaff, #b0c8e8, #8ab4d8);
+      border: 5px solid #b0c8e8;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 0 auto;
       box-shadow:
-        0 0 0 10px rgba(249, 184, 212, 0.25),
-        0 0 0 20px rgba(249, 184, 212, 0.12),
-        0 8px 40px rgba(196, 49, 104, 0.25);
-      animation: pulseRing 3s ease-in-out infinite;
+        0 0 0 10px rgba(176, 200, 232, 0.25),
+        0 0 0 20px rgba(176, 200, 232, 0.12),
+        0 8px 40px rgba(26, 58, 92, 0.25);
+      animation: pulseRingDad 3s ease-in-out infinite;
       font-size: 6rem;
       position: relative;
       overflow: hidden;
     }
 
-    .mothers-badge-img .flower-ring::before {
-      content: "🌸";
+    .fathers-badge-img .dad-ring::before {
+      content: "⭐";
       position: absolute;
       top: 10px;
       left: 10px;
@@ -263,8 +268,8 @@
       opacity: 0.6;
     }
 
-    .mothers-badge-img .flower-ring::after {
-      content: "🌹";
+    .fathers-badge-img .dad-ring::after {
+      content: "🏆";
       position: absolute;
       bottom: 10px;
       right: 10px;
@@ -272,41 +277,38 @@
       opacity: 0.6;
     }
 
-    @keyframes pulseRing {
-
-      0%,
-      100% {
-        box-shadow: 0 0 0 10px rgba(249, 184, 212, 0.25), 0 0 0 20px rgba(249, 184, 212, 0.12), 0 8px 40px rgba(196, 49, 104, 0.25);
+    @keyframes pulseRingDad {
+      0%, 100% {
+        box-shadow: 0 0 0 10px rgba(176, 200, 232, 0.25), 0 0 0 20px rgba(176, 200, 232, 0.12), 0 8px 40px rgba(26, 58, 92, 0.25);
       }
-
       50% {
-        box-shadow: 0 0 0 16px rgba(249, 184, 212, 0.3), 0 0 0 30px rgba(249, 184, 212, 0.15), 0 8px 50px rgba(196, 49, 104, 0.35);
+        box-shadow: 0 0 0 16px rgba(176, 200, 232, 0.3), 0 0 0 30px rgba(176, 200, 232, 0.15), 0 8px 50px rgba(26, 58, 92, 0.35);
       }
     }
 
-    .mothers-title {
+    .fathers-title {
       font-family: "Great Vibes", cursive;
       font-size: clamp(3rem, 9vw, 5.5rem);
-      background: linear-gradient(135deg, #9b2460, #e8457a, #f9a8d4, #e8457a);
+      background: linear-gradient(135deg, #0d2137, #2a5298, #4a90d9, #2a5298);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       line-height: 1.1;
       margin-bottom: 10px;
-      filter: drop-shadow(0 2px 6px rgba(196, 49, 104, 0.2));
+      filter: drop-shadow(0 2px 6px rgba(26, 58, 92, 0.2));
       animation: fadeSlideUp 0.8s ease both;
     }
 
-    .mothers-subtitle {
+    .fathers-subtitle {
       font-family: "Playfair Display", serif;
       font-size: clamp(1rem, 2.5vw, 1.35rem);
-      color: #9b2460;
+      color: #1a3a5c;
       font-style: italic;
       margin-bottom: 24px;
       animation: fadeSlideUp 0.8s 0.15s ease both;
     }
 
-    .mothers-desc {
+    .fathers-desc {
       font-size: 1rem;
       color: var(--text-mid);
       line-height: 1.85;
@@ -315,12 +317,12 @@
       animation: fadeSlideUp 0.8s 0.3s ease both;
     }
 
-    .mothers-desc strong {
-      color: #c43168;
+    .fathers-desc strong {
+      color: #2a5298;
     }
 
-    /* Tarjetas de regalo madre */
-    .mothers-cards {
+    /* Tarjetas regalo Día del Padre */
+    .fathers-cards {
       display: flex;
       gap: 16px;
       justify-content: center;
@@ -329,51 +331,51 @@
       animation: fadeSlideUp 0.8s 0.45s ease both;
     }
 
-    .mothers-gift-card {
+    .fathers-gift-card {
       background: #fff;
-      border: 2px solid #f9b8d4;
+      border: 2px solid #b0c8e8;
       border-radius: 18px;
       padding: 20px 22px;
       text-align: center;
       width: 160px;
-      box-shadow: 0 4px 18px rgba(196, 49, 104, 0.12);
+      box-shadow: 0 4px 18px rgba(26, 58, 92, 0.12);
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .mothers-gift-card:hover {
+    .fathers-gift-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(196, 49, 104, 0.22);
+      box-shadow: 0 10px 30px rgba(26, 58, 92, 0.22);
     }
 
-    .mothers-gift-card .gc-icon {
+    .fathers-gift-card .gc-icon {
       font-size: 2.4rem;
       margin-bottom: 8px;
     }
 
-    .mothers-gift-card h4 {
+    .fathers-gift-card h4 {
       font-family: "Playfair Display", serif;
       font-size: 0.85rem;
-      color: #9b2460;
+      color: #1a3a5c;
       line-height: 1.4;
     }
 
-    /* Nota de pedidos */
-    .mothers-order-note {
+    /* Nota de pedidos Día del Padre */
+    .fathers-order-note {
       margin-top: 28px;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: linear-gradient(135deg, #ffe0f0, #ffd6ec);
-      border: 1.5px solid #f9b8d4;
+      background: linear-gradient(135deg, #ddeaff, #cdd9f5);
+      border: 1.5px solid #b0c8e8;
       border-radius: 14px;
       padding: 12px 24px;
       font-size: 0.9rem;
-      color: #9b2460;
+      color: #1a3a5c;
       animation: fadeSlideUp 0.8s 0.6s ease both;
     }
 
-    .mothers-order-note strong {
-      color: #7a1a4e;
+    .fathers-order-note strong {
+      color: #0d2137;
     }
 
     /* ── NAVBAR ── */
@@ -541,13 +543,10 @@
     }
 
     @keyframes float {
-
-      0%,
-      100% {
+      0%, 100% {
         transform: translateY(0) scale(1);
         opacity: 0.7;
       }
-
       50% {
         transform: translateY(-20px) scale(1.3);
         opacity: 1;
@@ -691,12 +690,9 @@
     }
 
     @keyframes bounce {
-
-      0%,
-      100% {
+      0%, 100% {
         transform: rotate(45deg) translateY(0);
       }
-
       50% {
         transform: rotate(45deg) translateY(6px);
       }
@@ -707,7 +703,6 @@
         opacity: 0;
         transform: translateY(30px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -797,7 +792,6 @@
         opacity: 0;
         transform: translateY(10px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
@@ -1471,11 +1465,11 @@
         padding: 28px 20px;
       }
 
-      #mothers-main-banner .banner-inner {
+      #fathers-main-banner .banner-inner {
         justify-content: center;
       }
 
-      .mothers-gift-card {
+      .fathers-gift-card {
         width: 140px;
       }
     }
@@ -1520,16 +1514,9 @@
       margin-top: 8px;
     }
 
-    @keyframes mdSway {
-
-      0%,
-      100% {
-        transform: rotate(-8deg);
-      }
-
-      50% {
-        transform: rotate(8deg);
-      }
+    @keyframes dadSway {
+      0%, 100% { transform: rotate(-8deg); }
+      50% { transform: rotate(8deg); }
     }
   </style>
 </head>
@@ -1573,12 +1560,10 @@
   <section id="inicio">
     <div class="sparkle" style="top:15%;left:10%;animation-delay:0s"></div>
     <div class="sparkle" style="top:25%;left:80%;animation-delay:0.7s;width:4px;height:4px"></div>
-    <div class="sparkle" style="top:70%;left:5%;animation-delay:1.4s;width:8px;height:8px;background:var(--pink-rose)">
-    </div>
+    <div class="sparkle" style="top:70%;left:5%;animation-delay:1.4s;width:8px;height:8px;background:var(--pink-rose)"></div>
     <div class="sparkle" style="top:60%;left:90%;animation-delay:0.3s"></div>
     <div class="sparkle" style="top:85%;left:50%;animation-delay:1s;width:5px;height:5px"></div>
-    <div class="sparkle" style="top:40%;left:3%;animation-delay:1.8s;width:7px;height:7px;background:var(--pink-rose)">
-    </div>
+    <div class="sparkle" style="top:40%;left:3%;animation-delay:1.8s;width:7px;height:7px;background:var(--pink-rose)"></div>
 
     <div class="hero-content">
       <span class="hero-badge">✦ Vereda San Francisco – Inzá ✦</span>
@@ -1592,8 +1577,7 @@
         <a href="https://wa.me/573225195068?text=Hola%20Ross%20Delicias%20y%20Sabores%2C%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20%F0%9F%8E%82"
           target="_blank" class="btn-whatsapp">
           <svg viewBox="0 0 24 24">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
           </svg>
           Escríbenos por WhatsApp
         </a>
@@ -1607,29 +1591,26 @@
   </section>
 
   <!-- ══════════════════════════════════════
-       SECCIÓN ESPECIAL DÍA DE LA MADRE
-       (se oculta después del 15 mayo 2026)
+       TEMÁTICA DÍA DEL PADRE
+       (se oculta después del 1 de julio de 2026)
   ══════════════════════════════════════ -->
-  <!-- ══════════════════════════════════════
-       TEMÁTICA DÍA DE LA MADRE (oculta después del 15 mayo 2026)
-  ══════════════════════════════════════ -->
-  <div id="mothers-theme-wrapper">
+  <div id="fathers-theme-wrapper">
 
-    <!-- Pétalos flotantes (se insertan por JS) -->
+    <!-- Partículas flotantes (se insertan por JS) -->
 
-    <!-- ── BANNER SUPERIOR DÍA DE LA MADRE ── -->
-    <div id="mothers-main-banner">
+    <!-- ── BANNER SUPERIOR DÍA DEL PADRE ── -->
+    <div id="fathers-main-banner">
       <div class="banner-inner">
         <div class="banner-left">
-          <span class="banner-emoji"><img src="assets/icons/rosa.png" alt=""></span>
+          <span class="banner-emoji">👨</span>
           <div class="banner-text">
-            <strong>¡Feliz Día de la Madre! </strong>
-            Tortas y postres especiales · Pedidos hasta el <strong>8 de mayo</strong>
+            <strong>¡Feliz Día del Padre! 🏆</strong>
+            Tortas y postres especiales · Pedidos hasta el <strong>18 de junio</strong>
           </div>
-          <span class="banner-emoji" style="animation-delay:.5s">💐</span>
+          <span class="banner-emoji" style="animation-delay:.5s">⭐</span>
         </div>
         <div class="countdown-wrap">
-          <span class="countdown-label" id="cd-label">Faltan para el Día de la Madre:</span>
+          <span class="countdown-label" id="cd-label">Faltan para el Día del Padre:</span>
           <div class="countdown-boxes" id="countdown-boxes">
             <div class="cbox"><span class="cnum" id="cd-days">00</span><span class="clbl">Días</span></div>
             <span class="countdown-sep">:</span>
@@ -1639,60 +1620,65 @@
             <span class="countdown-sep">:</span>
             <div class="cbox"><span class="cnum" id="cd-secs">00</span><span class="clbl">Seg</span></div>
           </div>
-          <div id="after-mothers-day-msg">¡Gracias por celebrar con nosotros! 💕</div>
+          <div id="after-fathers-day-msg">¡Gracias por celebrar con nosotros! 🏆</div>
         </div>
-        <a href="https://wa.me/573225195068?text=Hola%20Ross%20Delicias%2C%20quiero%20un%20pedido%20especial%20para%20el%20D%C3%ADa%20de%20las%20Madres%20%F0%9F%8C%B8"
+        <a href="https://wa.me/573225195068?text=Hola%20Ross%20Delicias%2C%20quiero%20un%20pedido%20especial%20para%20el%20D%C3%ADa%20del%20Padre%20%F0%9F%8F%86"
           target="_blank" class="banner-cta">
           🎂 Pedir ahora
         </a>
       </div>
     </div>
 
-  </div><!-- /mothers-theme-wrapper -->
-  <section id="mothers-hero-section">
-    <div class="mothers-inner">
-      
-      <h2 class="mothers-title reveal">Feliz Día de la Madre</h2>
-      <p class="mothers-subtitle reveal">Para la mujer más especial de tu vida 💕</p>
-      <p class="mothers-desc reveal">
-        Este <strong>10 de mayo</strong> sorprende a mamá con una torta artesanal hecha con todo el amor
-        del mundo. Personalizamos cada detalle para que sea un regalo tan único como ella.
+  </div><!-- /fathers-theme-wrapper -->
+
+  <!-- ── SECCIÓN HERO DÍA DEL PADRE ── -->
+  <section id="fathers-hero-section">
+    <div class="fathers-inner">
+
+      <div class="fathers-badge-img">
+        <div class="dad-ring">👨</div>
+      </div>
+
+      <h2 class="fathers-title reveal">Feliz Día del Padre</h2>
+      <p class="fathers-subtitle reveal">Para el hombre más especial de tu vida 🏆</p>
+      <p class="fathers-desc reveal">
+        Este <strong>15 de junio</strong> sorprende a papá con una torta artesanal hecha con todo el cariño
+        del mundo. Personalizamos cada detalle para que sea un regalo tan único como él.
         <br><br>
-        🎂 <strong>Pedidos especiales hasta el 8 de mayo</strong> — ¡No te quedes sin el tuyo!
+        🎂 <strong>Pedidos especiales hasta el 18 de junio</strong> — ¡No te quedes sin el tuyo!
       </p>
 
-      <div class="mothers-cards reveal">
-        <div class="mothers-gift-card">
+      <div class="fathers-cards reveal">
+        <div class="fathers-gift-card">
           <div class="gc-icon"><img src="assets/icons/personalizadas.png" alt=""></div>
-          <h4>Torta personalizada para mamá</h4>
+          <h4>Torta personalizada para papá</h4>
         </div>
-        <div class="mothers-gift-card">
-          <div class="gc-icon"><img src="assets/icons/rosa.png" alt=""></div>
-          <h4>Diseño floral exclusivo</h4>
+        <div class="fathers-gift-card">
+          <div class="gc-icon">🏆</div>
+          <h4>Diseño exclusivo para él</h4>
         </div>
-        <div class="mothers-gift-card">
+        <div class="fathers-gift-card">
           <div class="gc-icon"><img src="assets/icons/torta-fria.png" alt=""></div>
           <h4>Tortas frías y caseras</h4>
         </div>
-        <div class="mothers-gift-card">
-          <div class="gc-icon"><img src="assets/icons/feliz-dia-de-la-madre.png" alt=""></div>
+        <div class="fathers-gift-card">
+          <div class="gc-icon">⭐</div>
           <h4>Postres y detalles especiales</h4>
         </div>
       </div>
 
-      <div class="mothers-order-note reveal">
-        📅 <span><strong>Cierre de pedidos:</strong> 8 de mayo · El gran día: <strong>10 de mayo de 2026</strong></span>
+      <div class="fathers-order-note reveal">
+        📅 <span><strong>Cierre de pedidos:</strong> 14 de junio · El gran día: <strong>15 de junio de 2026</strong></span>
       </div>
 
       <div style="margin-top:28px;" class="reveal">
-        <a href="https://wa.me/573225195068?text=Hola%20Ross%20Delicias%2C%20quiero%20hacer%20un%20pedido%20especial%20para%20el%20D%C3%ADa%20de%20la%20Madre%20%F0%9F%8C%B8"
+        <a href="https://wa.me/573225195068?text=Hola%20Ross%20Delicias%2C%20quiero%20hacer%20un%20pedido%20especial%20para%20el%20D%C3%ADa%20del%20Padre%20%F0%9F%8F%86"
           target="_blank" class="btn-whatsapp"
-          style="display:inline-flex;background:linear-gradient(135deg,#e8457a,#c43168);box-shadow:0 4px 20px rgba(196,49,104,0.4);">
+          style="display:inline-flex;background:linear-gradient(135deg,#2a5298,#1a3a5c);box-shadow:0 4px 20px rgba(26,58,92,0.4);">
           <svg viewBox="0 0 24 24">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
           </svg>
-          🌸 Pedir torta para mamá
+          🏆 Pedir torta para papá
         </a>
       </div>
     </div>
@@ -1718,25 +1704,21 @@
             <span class="badge-size">Pequeña</span>
             <h3>Torta Casera Pequeña</h3>
             <span class="porciones">6 – 8 porciones</span>
-            <!-- <p class="desc">Base de frutas frescas, crema suave.</p> -->
           </div>
           <div class="torta-card reveal">
             <span class="badge-size">Mediana</span>
             <h3>Torta Casera Mediana</h3>
             <span class="porciones">12 – 16 porciones</span>
-            <!-- <p class="desc">Cremosa y refrescante. Disponible en sabores de frutas y chocolate.</p> -->
           </div>
           <div class="torta-card reveal">
             <span class="badge-size">Grande</span>
             <h3>Torta Casera Grande</h3>
             <span class="porciones">20 – 28 porciones</span>
-            <!-- <p class="desc">Perfecta para eventos. Decoración elegante con frutas y crema.</p> -->
           </div>
           <div class="torta-card reveal">
             <span class="badge-size">Especial</span>
             <h3>Torta Casera Especial</h3>
             <span class="porciones">30+ porciones</span>
-            <!-- <p class="desc">Diseño exclusivo, varios pisos, sabores combinados a tu gusto.</p> -->
           </div>
         </div>
       </div>
@@ -1775,8 +1757,7 @@
         <a href="https://wa.me/573225195068?text=Hola%2C%20me%20interesa%20pedir%20una%20torta.%20%C2%BFMe%20pueden%20dar%20m%C3%A1s%20informaci%C3%B3n%3F"
           target="_blank" class="btn-whatsapp" style="display:inline-flex">
           <svg viewBox="0 0 24 24">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
           </svg>
           Consultar precio de mi torta
         </a>
@@ -1793,102 +1774,38 @@
         <div class="divider"></div>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item reveal"><img src="assets/img/galeria/caserape1.png" alt="Torta personalizada" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/fria1.png" alt="Torta fría de fresa" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/amor1.png" alt="Torta de cumpleaños" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/sencillaes4.jpg" alt="Torta de chocolate" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/sencilla2.png" alt="Torta de frutos rojos" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/sencillaes3.png" alt="Torta de matrimonio" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/sencillaes1.png" alt="Cupcakes decorados" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/sencillaes2.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/medi1.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/medi3.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/perso1.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/perso2.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/perso3.jpeg" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/perso4.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/casera1.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/perso8.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/perso7.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/cuadrada1.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/cuadrada2.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/perso1L.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/perso9.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/perso10.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/perso_5.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/persoms6.jpg" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/personiña1.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/casera2.png" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/Mufis.jpg" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/buñuelo.jpeg" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/nacional2.jpeg" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/stich.jpeg" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/sonic.jpeg" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
-        <div class="gallery-item reveal"><img src="assets/img/galeria/winne.jpeg" alt="Creación especial" />
-          <div class="gallery-overlay"><span>Creación especial</span></div>
-        </div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/caserape1.png" alt="Torta personalizada" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/fria1.png" alt="Torta fría de fresa" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/amor1.png" alt="Torta de cumpleaños" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/sencillaes4.jpg" alt="Torta de chocolate" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/sencilla2.png" alt="Torta de frutos rojos" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/sencillaes3.png" alt="Torta de matrimonio" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/sencillaes1.png" alt="Cupcakes decorados" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/sencillaes2.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/medi1.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/medi3.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/perso1.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/perso2.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/perso3.jpeg" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/perso4.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/casera1.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/perso8.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/perso7.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/cuadrada1.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/cuadrada2.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/perso1L.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/perso9.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/perso10.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/perso_5.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/persoms6.jpg" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/personiña1.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/casera2.png" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/Mufis.jpg" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/buñuelo.jpeg" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/nacional2.jpeg" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/stich.jpeg" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/sonic.jpeg" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
+        <div class="gallery-item reveal"><img src="assets/img/galeria/winne.jpeg" alt="Creación especial" /><div class="gallery-overlay"><span>Creación especial</span></div></div>
       </div>
       <p class="gallery-note reveal">📸 Pronto más fotos de nuestras creaciones. ¡Cada torta es una obra de arte!</p>
     </div>
@@ -1906,14 +1823,12 @@
         <div class="prod-card reveal">
           <img src="assets/icons/torta-casera.png" alt="" width="65px" />
           <h3>Tortas Caseras</h3>
-          <p>Elaboradas con recetas tradicionales, ingredientes frescos y todo el amor de siempre. Disponibles en
-            múltiples sabores y tamaños.</p>
+          <p>Elaboradas con recetas tradicionales, ingredientes frescos y todo el amor de siempre. Disponibles en múltiples sabores y tamaños.</p>
         </div>
         <div class="prod-card reveal">
           <img src="assets/icons/torta-fria.png" alt="" width="65px" />
           <h3>Tortas Frías</h3>
-          <p>Cremosas y refrescantes. Ideales para climas cálidos y celebraciones especiales con rellenos irresistibles.
-          </p>
+          <p>Cremosas y refrescantes. Ideales para climas cálidos y celebraciones especiales con rellenos irresistibles.</p>
         </div>
         <div class="prod-card reveal">
           <img src="assets/icons/personalizadas.png" alt="" width="60px" />
@@ -1923,14 +1838,12 @@
         <div class="prod-card reveal">
           <img src="assets/icons/alfajores.png" alt="" width="65px" />
           <h3>Alfajores</h3>
-          <p>Clásicos de la repostería, rellenos de arequipe y cubiertos con coco rallado. Hechos con mucho cariño y
-            paciencia.</p>
+          <p>Clásicos de la repostería, rellenos de arequipe y cubiertos con coco rallado. Hechos con mucho cariño y paciencia.</p>
         </div>
         <div class="prod-card reveal">
           <img src="assets/icons/sabroso-delicioso.png" alt="" width="65px" />
           <h3>Más Delicias</h3>
-          <p>Brownies, galletas decoradas, postres en vaso, conservas y muchas sorpresas más. ¡Pregúntanos qué hay
-            disponible!</p>
+          <p>Brownies, galletas decoradas, postres en vaso, conservas y muchas sorpresas más. ¡Pregúntanos qué hay disponible!</p>
         </div>
       </div>
 
@@ -1944,14 +1857,12 @@
           <div class="bebida-card reveal">
             <img src="assets/icons/sabajon.png" alt="" width="60px" />
             <h3>Sabajón</h3>
-            <p>Cremoso, suave y con el sabor único de nuestra receta familiar. Un sabajón artesanal que enamora desde el
-              primer sorbo.</p>
+            <p>Cremoso, suave y con el sabor único de nuestra receta familiar. Un sabajón artesanal que enamora desde el primer sorbo.</p>
           </div>
           <div class="bebida-card reveal">
             <img src="assets/icons/crema-cafe.png" alt="" width="60px" />
             <h3>Crema de Café</h3>
-            <p>La intensidad del café colombiano combinada con la suavidad de una crema artesanal. Una experiencia para
-              los amantes del café.</p>
+            <p>La intensidad del café colombiano combinada con la suavidad de una crema artesanal. Una experiencia para los amantes del café.</p>
           </div>
           <div class="bebida-card reveal">
             <img src="assets/icons/sabroso-delicioso.png" alt="" width="60px" />
@@ -1960,17 +1871,13 @@
           </div>
         </div>
         <div class="alcohol-warning reveal">
-          <img src="assets/icons/advertencia.png" alt="Advertencia"> <strong>Advertencia:</strong> El sabajón y la crema
-          de café son bebidas <strong>a base de alcohol</strong>. El <strong>exceso de alcohol es perjudicial para la
-            salud</strong>. <strong>Prohibido el consumo para menores de edad.</strong> Si está en estado de embarazo o
-          lactancia, absténgase de consumir.
+          <img src="assets/icons/advertencia.png" alt="Advertencia"> <strong>Advertencia:</strong> El sabajón y la crema de café son bebidas <strong>a base de alcohol</strong>. El <strong>exceso de alcohol es perjudicial para la salud</strong>. <strong>Prohibido el consumo para menores de edad.</strong> Si está en estado de embarazo o lactancia, absténgase de consumir.
         </div>
         <div style="text-align:center;margin-top:30px" class="reveal">
           <a href="https://wa.me/573225195068?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20bebidas%20artesanales%20🍹"
             target="_blank" class="btn-whatsapp" style="display:inline-flex">
             <svg viewBox="0 0 24 24">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
             </svg>
             Escríbenos por WhatsApp para más información.
           </a>
@@ -2003,7 +1910,7 @@
               <option>Baby Shower</option>
               <option>Bautizo</option>
               <option>Aniversario</option>
-              <option>Día de la Madre 🌸</option>
+              <option>Día del Padre 🏆</option>
               <option>Otra ocasión</option>
             </select>
           </div>
@@ -2035,7 +1942,7 @@
         <div class="form-group" style="margin-bottom:18px">
           <label>Describe tu diseño o tema</label>
           <textarea id="descripcion"
-            placeholder="Ej: Quiero una torta de 3 pisos con tema floral en tonos rosas y dorados, con el nombre 'Soila Quebrinca Salas' en letras doradas y flores de azúcar..."></textarea>
+            placeholder="Ej: Quiero una torta de 3 pisos con tema deportivo en tonos azules y dorados, con el nombre 'Carlos' en letras doradas..."></textarea>
         </div>
         <div style="text-align:center">
           <button class="btn-send" onclick="enviarDiseño()">📲 Enviar diseño por WhatsApp</button>
@@ -2049,10 +1956,8 @@
     <div class="nosotros-inner">
       <div class="nosotros-text reveal">
         <h2>Sobre Nosotros</h2>
-        <p>Somos <strong>Ross Delicias y Sabores</strong>, una repostería artesanal ubicada en la Vereda San Francisco,
-          Inzá. Nacimos de la pasión por endulzar momentos especiales con creaciones hechas desde el corazón.</p>
-        <p>Cada torta, cada postre, cada detalle es elaborado con ingredientes frescos y la dedicación de quien ama
-          verdaderamente su oficio. Creemos que los mejores momentos de la vida merecen los mejores sabores.</p>
+        <p>Somos <strong>Ross Delicias y Sabores</strong>, una repostería artesanal ubicada en la Vereda San Francisco, Inzá. Nacimos de la pasión por endulzar momentos especiales con creaciones hechas desde el corazón.</p>
+        <p>Cada torta, cada postre, cada detalle es elaborado con ingredientes frescos y la dedicación de quien ama verdaderamente su oficio. Creemos que los mejores momentos de la vida merecen los mejores sabores.</p>
         <ul class="values-list">
           <li>Ingredientes frescos y de calidad</li>
           <li>Recetas artesanales con sazón propia</li>
@@ -2062,18 +1967,10 @@
         </ul>
       </div>
       <div class="nosotros-visual reveal">
-        <div class="nos-card"><span class="num">100%</span>
-          <p class="lbl">Artesanal</p>
-        </div>
-        <div class="nos-card"><span class="num"><img src="assets/icons/sabroso-delicioso.png" alt=""></span>
-          <p class="lbl">Con amor</p>
-        </div>
-        <div class="nos-card"><span class="num"><img src="assets/icons/personalizadas.png" alt=""></span>
-          <p class="lbl">Tortas únicas</p>
-        </div>
-        <div class="nos-card"><span class="num"><img src="assets/icons/cinco-estrellas.png" alt=""></span>
-          <p class="lbl">Calidad premium</p>
-        </div>
+        <div class="nos-card"><span class="num">100%</span><p class="lbl">Artesanal</p></div>
+        <div class="nos-card"><span class="num"><img src="assets/icons/sabroso-delicioso.png" alt=""></span><p class="lbl">Con amor</p></div>
+        <div class="nos-card"><span class="num"><img src="assets/icons/personalizadas.png" alt=""></span><p class="lbl">Tortas únicas</p></div>
+        <div class="nos-card"><span class="num"><img src="assets/icons/cinco-estrellas.png" alt=""></span><p class="lbl">Calidad premium</p></div>
       </div>
     </div>
   </section>
@@ -2113,8 +2010,7 @@
         <a href="https://wa.me/573225195068?text=Hola%20Ross%20Delicias%20y%20Sabores%2C%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20%F0%9F%8E%82"
           target="_blank" class="wa-big">
           <svg viewBox="0 0 24 24">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
           </svg>
           Escríbenos ahora ¡y recibe atención personalizada!
         </a>
@@ -2137,92 +2033,90 @@
         <a href="#contacto">Contacto</a>
       </div>
       <hr class="footer-sep" />
-      <p class="footer-copy">© 2026 <span>Ross Delicias y Sabores</span> · Vereda San Francisco, Inzá, Cauca · <a
-          href="tel:+573225195068" style="color:var(--gold);text-decoration:none">322 519 5068</a></p>
+      <p class="footer-copy">© 2026 <span>Ross Delicias y Sabores</span> · Vereda San Francisco, Inzá, Cauca · <a href="tel:+573225195068" style="color:var(--gold);text-decoration:none">322 519 5068</a></p>
       <p style="font-size:10px;opacity:0.6;text-align:center;">© dev:Santix | Web ∴ protected</p>
     </div>
   </footer>
 
   <script>
     /* ════════════════════════════════════════════
-       FECHAS DE CONTROL TEMÁTICA DÍA DE LA MADRE
-       - Día de la Madre: 10 mayo 2026
-       - Fin temática:    15 mayo 2026 a las 23:59
+       FECHAS DE CONTROL TEMÁTICA DÍA DEL PADRE
+       - Día del Padre Colombia: 15 junio 2026
+       - Fin temática: 1 julio 2026 a las 23:59
     ════════════════════════════════════════════ */
-    var MOTHERS_DAY = new Date('2026-05-10T00:00:00');
-    var THEME_END = new Date('2026-05-15T23:59:59');
-    var now = new Date();
+    var FATHERS_DAY  = new Date('2026-06-15T00:00:00');
+    var THEME_END    = new Date('2026-07-01T23:59:59');
+    var now          = new Date();
 
-    // Si ya pasó el 15 de mayo → ocultar TODO lo de temática
+    // Si ya pasó el 1 de julio → ocultar TODO lo de temática
     if (now > THEME_END) {
-      var wrapper = document.getElementById('mothers-theme-wrapper');
+      var wrapper = document.getElementById('fathers-theme-wrapper');
       if (wrapper) wrapper.remove();
-      var heroSection = document.getElementById('mothers-hero-section');
+      var heroSection = document.getElementById('fathers-hero-section');
       if (heroSection) heroSection.remove();
     }
 
     /* ── CONTADOR REGRESIVO ── */
     function updateCountdown() {
       var now = new Date();
-      if (now > THEME_END) return; // tema terminado, nada que hacer
+      if (now > THEME_END) return;
 
-      var diff = MOTHERS_DAY - now;
+      var diff = FATHERS_DAY - now;
 
       if (diff <= 0) {
-        // Ya llegó el Día de la Madre → cambiar a mensaje de celebración
+        // Ya llegó el Día del Padre
         document.getElementById('countdown-boxes').style.display = 'none';
         document.getElementById('cd-label').style.display = 'none';
-        var msg = document.getElementById('after-mothers-day-msg');
+        var msg = document.getElementById('after-fathers-day-msg');
         msg.style.display = 'block';
-        msg.innerHTML = '🌸 <strong>¡Feliz Día de la Madre!</strong> 💐 Que sea un día lleno de amor y dulzura 🎂';
+        msg.innerHTML = '🏆 <strong>¡Feliz Día del Padre!</strong> ⭐ Que sea un día lleno de amor y dulzura 🎂';
         return;
       }
 
-      var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var days  = Math.floor(diff / (1000 * 60 * 60 * 24));
       var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      var mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      var secs = Math.floor((diff % (1000 * 60)) / 1000);
+      var mins  = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var secs  = Math.floor((diff % (1000 * 60)) / 1000);
 
-      document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
+      document.getElementById('cd-days').textContent  = String(days).padStart(2, '0');
       document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-      document.getElementById('cd-mins').textContent = String(mins).padStart(2, '0');
-      document.getElementById('cd-secs').textContent = String(secs).padStart(2, '0');
+      document.getElementById('cd-mins').textContent  = String(mins).padStart(2, '0');
+      document.getElementById('cd-secs').textContent  = String(secs).padStart(2, '0');
     }
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    /* ── PÉTALOS FLOTANTES ── */
-    (function spawnPetals() {
+    /* ── PARTÍCULAS FLOTANTES DÍA DEL PADRE ── */
+    (function spawnParticles() {
       if (new Date() > THEME_END) return;
-      var petals = ['🌻', '🌹', '🌻', '🌹', '🌻'];
+      var icons = ['⭐', '🏆', '👔', '⭐', '🏅'];
       var container = document.body;
       for (var i = 0; i < 12; i++) {
-        (function (idx) {
-          setTimeout(function () {
+        (function(idx) {
+          setTimeout(function() {
             var p = document.createElement('div');
-            p.className = 'petal';
-            p.textContent = petals[Math.floor(Math.random() * petals.length)];
+            p.className = 'star-particle';
+            p.textContent = icons[Math.floor(Math.random() * icons.length)];
             p.style.left = (Math.random() * 100) + 'vw';
             p.style.fontSize = (Math.random() * 1.2 + 0.8) + 'rem';
             var dur = (Math.random() * 8 + 7);
             p.style.animationDuration = dur + 's';
-            p.style.animationDelay = (Math.random() * 5) + 's';
+            p.style.animationDelay    = (Math.random() * 5) + 's';
             container.appendChild(p);
-            setTimeout(function () { p.remove(); }, (dur + 6) * 1000);
+            setTimeout(function() { p.remove(); }, (dur + 6) * 1000);
           }, idx * 1200);
         })(i);
       }
-      // Relanzar cada 20s
-      setTimeout(spawnPetals, 20000);
+      setTimeout(spawnParticles, 20000);
     })();
 
     /* ════════════════════════════════════════════
-       FUNCIONES ORIGINALES DEL SITIO (sin tocar)
+       FUNCIONES ORIGINALES DEL SITIO
     ════════════════════════════════════════════ */
 
     // Navbar scroll shadow
-    window.addEventListener("scroll", function () {
+    window.addEventListener("scroll", function() {
       document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 40);
     });
 
@@ -2238,33 +2132,37 @@
 
     // Tabs
     function switchTab(t) {
-      document.querySelectorAll(".tab-content").forEach(function (el) { el.classList.remove("active"); });
-      document.querySelectorAll(".tab-btn").forEach(function (el) { el.classList.remove("active"); });
+      document.querySelectorAll(".tab-content").forEach(function(el) { el.classList.remove("active"); });
+      document.querySelectorAll(".tab-btn").forEach(function(el) { el.classList.remove("active"); });
       document.getElementById("tab-" + t).classList.add("active");
       event.target.classList.add("active");
     }
 
     // Scroll reveal
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
         if (e.isIntersecting) e.target.classList.add("visible");
       });
     }, { threshold: 0.12 });
-    document.querySelectorAll(".reveal").forEach(function (el) { observer.observe(el); });
+    document.querySelectorAll(".reveal").forEach(function(el) { observer.observe(el); });
 
     // Enviar diseño por WA
     function enviarDiseño() {
-      var nombre = document.getElementById("nombre").value.trim();
+      var nombre  = document.getElementById("nombre").value.trim();
       var ocasion = document.getElementById("ocasion").value;
-      var tipo = document.getElementById("tipo").value;
-      var tamano = document.getElementById("tamano").value;
-      var desc = document.getElementById("descripcion").value.trim();
-      if (!nombre) { alert("Por favor escribe tu nombre."); return; }
+      var tipo    = document.getElementById("tipo").value;
+      var tamano  = document.getElementById("tamano").value;
+      var desc    = document.getElementById("descripcion").value.trim();
+      if (!nombre)  { alert("Por favor escribe tu nombre.");     return; }
       if (!ocasion) { alert("Por favor selecciona la ocasión."); return; }
-      var msg = "Hola Ross Delicias y Sabores \n\nMe gustaría encargar una torta:\n\n Nombre: " + nombre + "\n Ocasión: " + ocasion + "\n Tipo: " + (tipo || "Por definir") + "\n Tamaño: " + (tamano || "Por definir") + "\n\n Descripción del diseño:\n" + (desc || "Sin descripción adicional") + "\n\n¡Gracias!";
+      var msg = "Hola Ross Delicias y Sabores \n\nMe gustaría encargar una torta:\n\n Nombre: " + nombre +
+                "\n Ocasión: " + ocasion +
+                "\n Tipo: "    + (tipo   || "Por definir") +
+                "\n Tamaño: "  + (tamano || "Por definir") +
+                "\n\n Descripción del diseño:\n" + (desc || "Sin descripción adicional") +
+                "\n\n¡Gracias!";
       window.open("https://wa.me/573225195068?text=" + encodeURIComponent(msg), "_blank");
     }
   </script>
 </body>
-
 </html>
